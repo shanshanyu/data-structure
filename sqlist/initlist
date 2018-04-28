@@ -1,0 +1,15 @@
+#define LIST_INIT_SIZE 10
+#define OK 0
+typedef int status;
+typedef int elemtype;
+typedef struct{
+  elemtype *elem;
+  int length;
+  int listsize;
+}sqlist;
+status initlist(sqlist *l){
+  l->elem=malloc(LIST_INIT_SIZE*sizeof(sqlist));
+  l->length=0;
+  l->listsize=10;
+  return OK;
+}
