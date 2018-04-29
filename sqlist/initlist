@@ -8,7 +8,7 @@ typedef struct{
   int listsize;
 }sqlist;
 status initlist(sqlist *l){
-  l->elem=malloc(LIST_INIT_SIZE*sizeof(sqlist));
+  l->elem=malloc(LIST_INIT_SIZE*sizeof(elemtype));
   l->length=0;
   l->listsize=10;
   return OK;
