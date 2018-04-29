@@ -16,3 +16,31 @@ status clearlist(sqlist *l){
   l->length=0;
   return OK;
 }
+
+status listinsert(sqlist *l,int i,elemtype e){  //在i的位置插入一个元素e
+  elemtype *p,*q,*new;//加一个new是有好处的，在内存分配失败的情况下不会影响原有的变量
+  if(i<1||i>l->length) return ERROR;
+  if(l->length>=l->listsize){
+    new=realloc(l->elem,(LISTINCREMENT+l->listsize)*sizeof(elemtype));
+    if(!new) return ERROR;
+    l->elem=new;
+    l->listsize+=LISTINCREMENT;
+    }
+  q=l->elem+i-1;
+  for(p=elem+l->length-1;q<=p;p--)
+    *(p+1)=*p;
+    *q=e;
+    ++l->length;
+    return OK;
+}
+
+status listdelete(sqlist *l,int i,elemtype *e){
+  elemtype *p,*q;
+  if(i<1||i>l->length) return ERROR;
+  q=l->elem+i-1;
+  for(p=l->elem+l->length-1;q<=p;p--)
+    *(p-1)=*p;
+  *e=*p;
+  l->length--;
+  return OK;
+}
