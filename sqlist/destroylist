@@ -1,7 +1,0 @@
-status destroylist(sqlist *l){
-  free(l->elem);  //释放内存后，l->elem的值仍为申请那段内存的首地址
-  l->elem=NULL;
-  l->length=0;
-  l->listsize=0;
-  return OK;
-}
