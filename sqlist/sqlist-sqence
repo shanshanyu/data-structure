@@ -38,8 +38,8 @@ status listdelete(sqlist *l,int i,elemtype *e){
   elemtype *p,*q;
   if(i<1||i>l->length) return ERROR;
   q=l->elem+i-1;
-  for(p=l->elem+l->length-1;q<=p;p--)
-    *(p-1)=*p;
+  for(p=l->elem+l->length-1;q<p;p--)
+   *(p-1)=*p;
   *e=*p;
   l->length--;
   return OK;
