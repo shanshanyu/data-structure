@@ -52,11 +52,12 @@ status nextelem(sqlist l,elemtype cur_e,elemtype *next_e){
 
 status listtraverse(sqlist l,void (*vi)(elemtype *)){
   int i;
-  p=l.elem;
+  elemtype *p=l.elem;
   for(i=1;i<=l.length;i++)
   vi(p++);
-  reutrn OK;
+  return OK;
 }
+
 void print(elemtype *p){
   printf("%d\n",*p);
 }
