@@ -50,11 +50,11 @@ status nextelem(sqlist l,elemtype cur_e,elemtype *next_e){
   }
 }
 
-status listtraverse(sqlist l){
+status listtraverse(sqlist l,void (*vi)(elemtype *)){
   int i;
   p=l.elem;
   for(i=1;i<=l.length;i++)
-  print(p++);
+  vi(p++);
   reutrn OK;
 }
 void print(elemtype *p){
