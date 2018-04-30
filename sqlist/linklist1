@@ -1,0 +1,11 @@
+status getelem(linklist l,int i,elemtype *e){ //l是头指针
+  int j=1;
+  linklist p=l->next;
+  while(p&&j<i){
+    p=p->next;
+    i++;
+  }
+  if(!p||i<j) return ERROR;
+  *e=p->data;
+  return OK;
+}
