@@ -1,0 +1,16 @@
+status initlist(linklist *l){
+  *l=malloc(sizeof(lnode));
+  if(!*l) return ERROR;
+  (*l)->next=NULL;
+  return OK;
+}
+
+status destroylist(linklist *l){
+  linklist p;
+  while(*l){
+    q=(*l)->next;
+    free(*l);
+    *l=q;
+  }
+  return OK;
+}
