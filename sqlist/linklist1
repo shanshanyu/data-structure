@@ -9,3 +9,14 @@ status getelem(linklist l,int i,elemtype *e){ //l是头指针
   *e=p->data;
   return OK;
 }
+
+int locateelem(linklist l,elemtype e,status (*comp)(elemtype,elemtype)){
+    int i=1;
+    linklist p=l->next;
+    while(p){
+        if(comp(p->data,e))return i;
+        p=p->next;
+        i++;
+    }
+    return 0;
+}
