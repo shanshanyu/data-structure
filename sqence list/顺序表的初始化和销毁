@@ -1,0 +1,15 @@
+status initlist(sqlist *l){  //initial list
+  l->elem=malloc(LIST_INIT_SIZE*sizeof(elemtype));
+  if(!l->elem) return ERROR;
+  l->length=0;
+  l->listsize=LINK_INIT_SIZE;
+  return OK;
+}
+
+status destroylist(sqlist *l){  //destroy list
+  free(l->elem);
+  l->elem=NULL;
+  l->length=0;
+  l->listsize=0;
+  return OK;
+}
