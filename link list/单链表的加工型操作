@@ -9,7 +9,7 @@ status listinsert(linklist l,int i,elemtype e){
     if(!p||j>i-1)return ERROR;
     new=malloc(sizeof(lnode));
     if(!new) return ERROR;
-    new-next=p->next;
+    new->next=p->next;
     p->next=new;
     new->data=e;
     return OK;
