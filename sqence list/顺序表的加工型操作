@@ -8,7 +8,7 @@ status listinsert(sqlist *l,int i,elemtype e){  //在i的位置插入一个元�
     l->listsize+=LISTINCREMENT;
     }
   q=l->elem+i-1;
-  for(p=elem+l->length-1;q<=p;p--)
+  for(p=l->elem+l->length-1;q<=p;p--)
     *(p+1)=*p;
     *q=e;
     ++l->length;
