@@ -8,9 +8,9 @@ status initlist(linklist *l){
 status destroylist(linklist *l){
   linklist p;
   while(*l){
-    q=(*l)->next;
+    p=(*l)->next;
     free(*l);
-    *l=q;
+    *l=p;
   }
   return OK;
 }
